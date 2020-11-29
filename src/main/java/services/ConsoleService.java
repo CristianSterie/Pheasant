@@ -2,6 +2,7 @@ package services;
 
 import java.util.List;
 
+import model.Game;
 import model.Player;
 import utils.ConsoleConstants;
 
@@ -55,6 +56,40 @@ public class ConsoleService {
 				.append(ConsoleConstants.SCREEN_LINE).append(ConsoleConstants.SCREEN_ENTER)
 				.append(ConsoleConstants.SCREEN_LINE).append(ConsoleConstants.SCREEN_ENTER);
 
+		System.out.println(sb.toString());
+	}
+	
+	public void printFirstGameScreen(Game game) {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(getScoreBoard(game.getPlayers()))
+			.append(ConsoleConstants.SCREEN_ENTER)
+			.append(ConsoleConstants.SCREEN_ENTER)
+			.append(ConsoleConstants.FIRST_MESSAGE)
+			.append(ConsoleConstants.SCREEN_LINE)
+			.append(ConsoleConstants.SCREEN_ENTER)
+			.append(ConsoleConstants.SCREEN_LINE)
+			.append(ConsoleConstants.SCREEN_ENTER);
+		
+		System.out.println(sb.toString());
+	}
+	
+	public void printGameScreen(Game game, String message, int player) {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(getScoreBoard(game.getPlayers()))
+			.append(ConsoleConstants.SCREEN_ENTER)
+			.append(ConsoleConstants.GAME_LAST_WORD)
+			.append(message)
+			.append(ConsoleConstants.SCREEN_ENTER)
+			.append(ConsoleConstants.LABEL_PLAYER_GENERIC)
+			.append(player)
+			.append(ConsoleConstants.LBL_PLR_HALF)
+			.append(ConsoleConstants.SCREEN_LINE)
+			.append(ConsoleConstants.SCREEN_ENTER)
+			.append(ConsoleConstants.SCREEN_LINE)
+			.append(ConsoleConstants.SCREEN_ENTER);
+		
 		System.out.println(sb.toString());
 	}
 
