@@ -1,15 +1,18 @@
 package main;
 
 import services.ConsoleService;
-import services.MechanicsService;
 
 public class Main {
 
 	public static void main(String[] args) {
+		// Hopefully not needed
 		ConsoleService console = new ConsoleService();
-		MechanicsService mechanics = new MechanicsService();
+		console.printHello();
+		console.printMessageScreen("PLayer 1 Name?");
 		
-		
+//		MechanicsService mechanics = new MechanicsService();
+//		
+//		mechanics.startGame();
 	}
 
 }
