@@ -17,4 +17,9 @@ public class ConsoleConstants {
 	public static final String LABEL_POINTS 		= " pct ";
 	
 	public static final String GAME_LAST_WORD		= "Ultimul cuvant: ";
+	
+	/* Exception and Error messages */
+	
+	public static final String EX_MESSAGE_CLRSCR	= "Something bad happend while trying to clear the screen: ";
+	
 }

@@ -2,7 +2,6 @@ package services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 import model.Game;
@@ -19,7 +18,7 @@ public class MechanicsService {
 		this.in = new Scanner(System.in);
 	}
 
-	//TODO: this should start game and all ingame machanics here
+	//TODO: this should start game and all in-game mechanics here
 	public void startGame() {
 		Game currentGame = new Game();
 		
@@ -62,9 +61,6 @@ public class MechanicsService {
 			//XXX: might be needed another message here 
 			
 		}
-		
-		/* TEST */
-		
 	}
 	
 	private Integer increaseCount(Game game, Integer oldCount) {

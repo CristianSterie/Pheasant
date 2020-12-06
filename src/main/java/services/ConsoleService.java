@@ -8,9 +8,12 @@ import utils.ConsoleConstants;
 
 public class ConsoleService {
 
-	/* METHODS */
+	/* PRINT METHODS */
 
 	public void printHello() {
+		// First let's clear the screen
+		clearScreen();
+		
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(ConsoleConstants.SCREEN_LINE).append(ConsoleConstants.SCREEN_ENTER)
@@ -32,6 +35,9 @@ public class ConsoleService {
 	 * @param message The message to print
 	 */
 	public void printMessageScreen(String message) {
+		// First let's clear the screen
+		clearScreen();
+				
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(ConsoleConstants.SCREEN_LINE).append(ConsoleConstants.SCREEN_ENTER)
@@ -60,6 +66,9 @@ public class ConsoleService {
 	}
 	
 	public void printFirstGameScreen(Game game) {
+		// First let's clear the screen
+		clearScreen();
+				
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append(getScoreBoard(game.getPlayers()))
@@ -75,6 +84,9 @@ public class ConsoleService {
 	}
 	
 	public void printGameScreen(Game game, String message, int player) {
+		// First let's clear the screen
+		clearScreen();
+				
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append(getScoreBoard(game.getPlayers()))
@@ -85,6 +97,7 @@ public class ConsoleService {
 			.append(ConsoleConstants.LABEL_PLAYER_GENERIC)
 			.append(player)
 			.append(ConsoleConstants.LBL_PLR_HALF)
+			.append(ConsoleConstants.SCREEN_ENTER)
 			.append(ConsoleConstants.SCREEN_LINE)
 			.append(ConsoleConstants.SCREEN_ENTER)
 			.append(ConsoleConstants.SCREEN_LINE)
@@ -92,8 +105,11 @@ public class ConsoleService {
 		
 		System.out.println(sb.toString());
 	}
+	
+	/* HELPER METHODS */
 
 	@Deprecated
+	@SuppressWarnings("unused")
 	private String getScreen() {
 		StringBuilder sb = new StringBuilder();
 //		sb.append(ConsoleConstants.SCREEN_LINE).append(ConsoleConstants.SCREEN_ENTER).append(getScoreBoard())
@@ -166,11 +182,31 @@ public class ConsoleService {
 	}
 
 	@Deprecated
+	@SuppressWarnings("unused")
 	private String createScreen() {
 		StringBuilder sb = new StringBuilder();
 
 		return sb.toString();
 	}
+	
+	/**
+	 * This method clears the screen in Windows CLI only
+	 */
+    public static void clearScreen(){
+        try {
+
+            if (System.getProperty("os.name").contains("Windows")) {
+            	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+            	Runtime.getRuntime().exec("clear");
+            }
+
+        } catch (Exception ex) {
+        	// If any Exception occurs print generic message and exception message
+        	System.out.println(ConsoleConstants.EX_MESSAGE_CLRSCR);
+        	System.out.println(ex.getMessage());
+        }
+    }
 
 	/* GETTER AND SETTERS */
 
