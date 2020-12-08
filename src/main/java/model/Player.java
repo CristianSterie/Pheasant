@@ -17,6 +17,11 @@ public class Player {
 //		this.name = newName;
 		setName(newName);
 	}
+	
+	//TODO: some way to get total points of a player
+	public Integer getPoints() {
+		return 0;
+	}
 
 	public String getName() {
 		return name;

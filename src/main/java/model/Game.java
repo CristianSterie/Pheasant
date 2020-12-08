@@ -1,10 +1,21 @@
 package model;
 
-public class Game {
-	
-	private String[] words =  {"alfabet","acelas"};
-	public String player1 = "";
-	public String player2 = "";
-		
-}
+import java.util.ArrayList;
+import java.util.List;
 
+public class Game {
+
+	private List<Player> players;
+	
+	public Game() {
+		this.players = new ArrayList<>();
+	}
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
+	}
+}
